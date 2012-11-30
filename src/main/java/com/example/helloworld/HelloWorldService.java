@@ -14,9 +14,10 @@ public class HelloWorldService extends Service<HelloWorldConfiguration> {
 	@Override
 	public void initialize(Bootstrap<HelloWorldConfiguration> bootstrap) {
 		bootstrap.setName("hello-world");
-		bootstrap.addBundle(new GuiceBundle()
+		bootstrap.addBundle(GuiceBundle.newBuilder()
 			.addModule(new HelloWorldModule())
 			.enableAutoConfig(getClass().getPackage().getName())
+			.build()
 		);
 	}
 
