@@ -1,8 +1,9 @@
 package com.example.helloworld;
 
-import com.yammer.dropwizard.config.Configuration;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.NotEmpty;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.yammer.dropwizard.config.Configuration;
 
 public class HelloWorldConfiguration extends Configuration {
     @NotEmpty

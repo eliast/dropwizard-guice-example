@@ -1,6 +1,5 @@
-package com.example.helloworld.guice;
+package com.example.helloworld;
 
-import com.example.helloworld.HelloWorldConfiguration;
 import com.google.inject.AbstractModule;
 import com.google.inject.name.Names;
 
