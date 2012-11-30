@@ -41,7 +41,7 @@ public class HelloWorldService extends Service<HelloWorldConfiguration> {
 		environment.addFilter(GuiceFilter.class, configuration
 				.getHttpConfiguration().getRootPath());
 
-		Guice.createInjector(new JerseyModule(container, configuration),
+		Guice.createInjector(new JerseyModule(container),
 				new HelloWorldModule(configuration));
 
 		environment.addResource(HelloWorldResource.class);
