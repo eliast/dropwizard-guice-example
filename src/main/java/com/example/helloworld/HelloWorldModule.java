@@ -1,20 +1,33 @@
 package com.example.helloworld;
 
+import javax.inject.Named;
+
 import com.google.inject.AbstractModule;
-import com.google.inject.name.Names;
+import com.google.inject.Provides;
+import com.yammer.dropwizard.config.Configuration;
 
 public class HelloWorldModule extends AbstractModule {
 	
-	private final HelloWorldConfiguration configuration;
-	
-	public HelloWorldModule(HelloWorldConfiguration configuration) {
-		this.configuration = configuration;
-	}
-
 	@Override
 	protected void configure() {
-		bind(String.class).annotatedWith(Names.named("template")).toInstance(configuration.getTemplate());
-		bind(String.class).annotatedWith(Names.named("defaultName")).toInstance(configuration.getDefaultName());
+
+	}
+
+	@Provides
+	public HelloWorldConfiguration configuration(Configuration configuration) {
+		return (HelloWorldConfiguration) configuration;
+	}
+	
+	@Provides
+	@Named("template")
+	public String provideTemplate(HelloWorldConfiguration configuration) {
+		return configuration.getTemplate();
+	}
+
+	@Provides
+	@Named("defaultName")
+	public String provideDefaultName(HelloWorldConfiguration configuration) {
+		return configuration.getDefaultName();
 	}
 
 }
