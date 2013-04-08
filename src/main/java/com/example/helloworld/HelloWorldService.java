@@ -14,11 +14,14 @@ public class HelloWorldService extends Service<HelloWorldConfiguration> {
 	@Override
 	public void initialize(Bootstrap<HelloWorldConfiguration> bootstrap) {
 		bootstrap.setName("hello-world");
-		bootstrap.addBundle(GuiceBundle.newBuilder()
-			.addModule(new HelloWorldModule())
-			.enableAutoConfig(getClass().getPackage().getName())
-			.build()
-		);
+		
+		GuiceBundle<HelloWorldConfiguration> guiceBundle = GuiceBundle.<HelloWorldConfiguration>newBuilder()
+				.addModule(new HelloWorldModule())
+				.enableAutoConfig(getClass().getPackage().getName())
+				.setConfigClass(HelloWorldConfiguration.class)
+				.build();
+
+		bootstrap.addBundle(guiceBundle);
 	}
 
 	@Override
