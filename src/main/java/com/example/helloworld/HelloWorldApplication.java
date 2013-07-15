@@ -5,10 +5,10 @@ import com.codahale.dropwizard.setup.Bootstrap;
 import com.codahale.dropwizard.setup.Environment;
 import com.hubspot.dropwizard.guice.GuiceBundle;
 
-public class HelloWorldService extends Application<HelloWorldConfiguration> {
+public class HelloWorldApplication extends Application<HelloWorldConfiguration> {
 
 	public static void main(String[] args) throws Exception {
-		new HelloWorldService().run(args);
+		new HelloWorldApplication().run(args);
 	}
 
 	@Override
