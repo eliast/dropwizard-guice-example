@@ -1,9 +1,8 @@
 package com.example.helloworld;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
+import com.codahale.dropwizard.Configuration;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.yammer.dropwizard.config.Configuration;
+import org.hibernate.validator.constraints.NotEmpty;
 
 public class HelloWorldConfiguration extends Configuration {
     @NotEmpty

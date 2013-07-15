@@ -1,11 +1,11 @@
 package com.example.helloworld;
 
+import com.codahale.dropwizard.Application;
+import com.codahale.dropwizard.setup.Bootstrap;
+import com.codahale.dropwizard.setup.Environment;
 import com.hubspot.dropwizard.guice.GuiceBundle;
-import com.yammer.dropwizard.Service;
-import com.yammer.dropwizard.config.Bootstrap;
-import com.yammer.dropwizard.config.Environment;
 
-public class HelloWorldService extends Service<HelloWorldConfiguration> {
+public class HelloWorldService extends Application<HelloWorldConfiguration> {
 
 	public static void main(String[] args) throws Exception {
 		new HelloWorldService().run(args);
@@ -13,8 +13,7 @@ public class HelloWorldService extends Service<HelloWorldConfiguration> {
 
 	@Override
 	public void initialize(Bootstrap<HelloWorldConfiguration> bootstrap) {
-		bootstrap.setName("hello-world");
-		
+
 		GuiceBundle<HelloWorldConfiguration> guiceBundle = GuiceBundle.<HelloWorldConfiguration>newBuilder()
 				.addModule(new HelloWorldModule())
 				.enableAutoConfig(getClass().getPackage().getName())
@@ -24,9 +23,12 @@ public class HelloWorldService extends Service<HelloWorldConfiguration> {
 		bootstrap.addBundle(guiceBundle);
 	}
 
-	@Override
-	public void run(HelloWorldConfiguration configuration, final Environment environment) {
-		
-	}
+    @Override
+    public String getName() {
+        return "hello-world";
+    }
 
+    @Override
+    public void run(HelloWorldConfiguration helloWorldConfiguration, Environment environment) throws Exception {
+    }
 }
