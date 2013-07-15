@@ -1,6 +1,6 @@
 template: Hello, %s!
 defaultName: Stranger
 
-http:
-
-  rootPath:  /v1/*
+server:
+  type: simple
+  applicationContextPath: /v1
