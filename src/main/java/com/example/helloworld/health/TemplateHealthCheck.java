@@ -3,16 +3,15 @@ package com.example.helloworld.health;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.google.inject.name.Named;
-import com.yammer.metrics.core.HealthCheck;
+import com.hubspot.dropwizard.guice.InjectableHealthCheck;
 
 @Singleton
-public class TemplateHealthCheck extends HealthCheck {
+public class TemplateHealthCheck extends InjectableHealthCheck {
     
 	private final String template;
 
     @Inject
     public TemplateHealthCheck(@Named("template") String template) {
-        super("template");
         this.template = template;
     }
 
@@ -23,5 +22,10 @@ public class TemplateHealthCheck extends HealthCheck {
             return Result.unhealthy("template doesn't include a name");
         }
         return Result.healthy();
+    }
+
+    @Override
+    public String getName() {
+        return "template";
     }
 }
