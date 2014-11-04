@@ -7,7 +7,7 @@
 
 	<groupId>dropwizard-guice-example</groupId>
 	<artifactId>hello-guice</artifactId>
-	<version>0.7.0-SNAPSHOT</version>
+	<version>0.7.0.4-SNAPSHOT</version>
 	<name>Dropwizard Guice Example</name>
 
     <repositories>
@@ -26,7 +26,7 @@
         <dependency>
             <groupId>com.hubspot.dropwizard</groupId>
             <artifactId>dropwizard-guice</artifactId>
-            <version>0.7.0-SNAPSHOT</version>
+            <version>0.7.0.4-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
@@ -103,7 +103,7 @@
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.example.helloworld.HelloWorldService</mainClass>
+                                    <mainClass>com.example.helloworld.HelloWorldApplication</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
